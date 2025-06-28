@@ -12,7 +12,7 @@ def test_cli_help():
     runner = CliRunner()
     result = runner.invoke(cli, ['--help'])
     assert result.exit_code == 0
-    assert 'SBP Folder Generator CLI' in result.output
+    assert 'Creative Structure CLI' in result.output
 
 
 def test_cli_version():

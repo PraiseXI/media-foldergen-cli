@@ -5,7 +5,7 @@ Main CLI interface for the SBP Folder Generator.
 import click
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 import questionary
 from rich.console import Console
 from rich.table import Table
@@ -76,12 +76,12 @@ def _client_folder_exists(client_name: str, project_type: str, directory_analysi
 
 
 @click.group()
-@click.version_option(version="0.1.0", prog_name="sbp-gen")
+@click.version_option(version="0.1.0", prog_name="structure-cli")
 def cli():
     """
-    SBP Folder Generator CLI
+    Creative Structure CLI
     
-    A tool for generating standardized folder structures for photo and video projects.
+    A powerful tool for generating standardized folder structures for photo and video projects.
     """
     pass
 
