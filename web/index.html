@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Structure CLI - Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎬 Creative Structure CLI</h1>
+            <p>Professional folder structures for photographers and videographers</p>
+            <div class="demo-badge">Interactive Demo</div>
+        </header>
+
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                </div>
+                <div class="terminal-title">Terminal</div>
+            </div>
+            
+            <div class="terminal" id="terminal">
+                <div class="terminal-content" id="terminal-content">
+                    <div class="line">
+                        <span class="prompt">$</span>
+                        <span class="command">creative-structure-cli interactive</span>
+                    </div>
+                    <div class="output">
+                        <div class="banner">
+                            ┌────────────────────────────────────────────────┐<br>
+                            │  🎬 Creative Structure CLI - Interactive Mode │<br>
+                            └────────────────────────────────────────────────┘
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-section" id="input-section" style="display: none;">
+                    <div class="current-prompt" id="current-prompt"></div>
+                    <input type="text" id="terminal-input" class="terminal-input" autocomplete="off">
+                </div>
+            </div>
+        </div>
+
+        <div class="steps-container" id="steps-container">
+            <div class="step active" id="step-0">
+                <h3>🎯 Welcome to the Interactive Demo</h3>
+                <p>Experience how the CLI helps you create professional folder structures for your creative projects.</p>
+                <button class="btn-primary" onclick="startDemo()">Start Demo</button>
+            </div>
+        </div>
+
+        <div class="preview-container" id="preview-container" style="display: none;">
+            <h3>📁 Generated Folder Structure</h3>
+            <div class="folder-tree" id="folder-tree"></div>
+            <div class="download-section">
+                <button class="btn-download" id="download-btn" onclick="downloadStructure()">
+                    📦 Download Folder Structure
+                </button>
+                <p class="download-note">Downloads a ZIP file with the complete folder structure</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Built for photographers and videographers who value organized workflows</p>
+            <div class="links">
+                <a href="#" class="link">📖 Documentation</a>
+                <a href="#" class="link">⭐ GitHub</a>
+                <a href="#" class="link">🚀 Install CLI</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
