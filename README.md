@@ -1,6 +1,6 @@
-# SBP Folder Generator CLI
+# Creative Structure CLI
 
-A command-line interface (CLI) application to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
+A powerful command-line interface (CLI) tool to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
 
 ## The Problem
 
@@ -59,7 +59,7 @@ Stop manually creating the same folders over and over. Start focusing on what yo
 - 📅 **Date-based Naming** - Automatic date formatting for project folders
 - 🎨 **Interactive Mode** - User-friendly prompts for easy project creation
 - 🧠 **Smart Path Detection** - Automatically detects existing folder structure and skips creating redundant folders
-- 📹 **Multi-Camera Support** - Organize footage by camera and purpose (main-lumix, BTS-DJI-POCKET, etc.)
+- 📹 **Multi-Camera Support** - Organize footage by camera and purpose (main-camera, BTS-secondary, etc.)
 - ⚙️ **Configurable** - Customize folder structures and settings
 
 ## Installation
@@ -67,47 +67,47 @@ Stop manually creating the same folders over and over. Start focusing on what yo
 ### From Source
 ```bash
 git clone <repository-url>
-cd sbp-folder-generator-cli
+cd creative-structure-cli
 pip install -e .
 ```
 
 ### Using pip (when published)
 ```bash
-pip install sbp-folder-generator
+pip install creative-structure-cli
 ```
 
 ## Quick Start
 
 ### Interactive Mode (Recommended)
 ```bash
-sbp-gen interactive
+structure-cli interactive
 ```
 
 ### Command Line Usage
 ```bash
 # Create a client photography project
-sbp-gen create --type photo --work-type client --client "ABC Corp" --project "Product Shoot"
+structure-cli create --type photo --work-type client --client "ABC Corp" --project "Product Shoot"
 
 # Create a personal video project
-sbp-gen create --type video --work-type personal --project "Travel Documentary"
+structure-cli create --type video --work-type personal --project "Travel Documentary"
 
 # List existing clients
-sbp-gen clients list
+structure-cli clients list
 
 # Add a new client
-sbp-gen clients add "New Client Name"
+structure-cli clients add "New Client Name"
 
 # Setup Assets & Resources folder structure
-sbp-gen setup-assets
+structure-cli setup-assets
 
 # Multi-camera video project
-sbp-gen create --type video --work-type client --client "ABC Corp" --project "Commercial" --cameras "main:lumix,BTS:DJI POCKET"
+structure-cli create --type video --work-type client --client "ABC Corp" --project "Commercial" --cameras "main:camera1,BTS:camera2"
 
 # View camera setup help
-sbp-gen cameras
+structure-cli cameras
 
 # Disable smart path detection (always create full structure)
-sbp-gen create --type photo --work-type client --client "ABC Corp" --project "Product Shoot" --no-smart-path
+structure-cli create --type photo --work-type client --client "ABC Corp" --project "Product Shoot" --no-smart-path
 ```
 
 ## Folder Structure
@@ -230,20 +230,20 @@ For video projects, organize your footage by camera and purpose with intelligent
 
 **Interactive Mode** (Recommended)
 ```bash
-python3 -m sbp_generator.cli interactive
+structure-cli interactive
 # Follow prompts to set up cameras step-by-step
 ```
 
 **Command Line**
 ```bash
 # Single camera setup
---cameras "main:lumix"
+--cameras "main:camera1"
 
 # Multi-camera setup
---cameras "main:lumix,BTS:DJI POCKET,drone:drone"
+--cameras "main:camera1,BTS:camera2,drone:camera3"
 
 # Complex setup
---cameras "main:fujifilm,secondary:canon,interview:sony,BTS:lumix"
+--cameras "main:camera1,secondary:camera2,interview:camera3,BTS:camera4"
 ```
 
 ### Example Output Structure
@@ -251,13 +251,13 @@ python3 -m sbp_generator.cli interactive
 VIDEO/Client Work/ABC Corp/2024-01-15-Commercial/
 ├── Footage/
 │   ├── RAW/
-│   │   ├── main-lumix/
-│   │   ├── BTS-DJI-POCKET/
-│   │   └── drone-drone/
+│   │   ├── main-camera1/
+│   │   ├── BTS-camera2/
+│   │   └── drone-camera3/
 │   └── Proxies/
-│       ├── main-lumix/
-│       ├── BTS-DJI-POCKET/
-│       └── drone-drone/
+│       ├── main-camera1/
+│       ├── BTS-camera2/
+│       └── drone-camera3/
 ├── Edited/
 ├── Deliverables/
 └── ...

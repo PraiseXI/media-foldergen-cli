@@ -49,6 +49,137 @@ body {
     backdrop-filter: blur(10px);
 }
 
+/* Story Section */
+.story-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.story-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-content h2 {
+    text-align: center;
+    color: #00d4aa;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.story-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.problem-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 212, 170, 0.2);
+    transition: all 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 212, 170, 0.15);
+    border-color: rgba(0, 212, 170, 0.4);
+}
+
+.problem-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.problem-card h3 {
+    color: #ff6b6b;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.problem-card p {
+    color: #c0c0c0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.problem-card strong {
+    color: #ff6b6b;
+}
+
+.solution-story h3 {
+    color: #00d4aa;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.solution-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.solution-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0, 212, 170, 0.1);
+    border-radius: 12px;
+    border-left: 4px solid #00d4aa;
+}
+
+.solution-emoji {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.solution-text {
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.solution-text strong {
+    color: #00d4aa;
+}
+
+.cta-story {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 212, 170, 0.3);
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.cta-text strong {
+    color: #00d4aa;
+}
+
 /* Terminal */
 .terminal-container {
     background: #1e1e1e;
@@ -354,6 +485,24 @@ body {
     
     .header h1 {
         font-size: 2rem;
+    }
+    
+    .story-content h2 {
+        font-size: 2rem;
+    }
+    
+    .problems-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .solution-point {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .story-section {
+        padding: 2rem 1rem;
     }
     
     .terminal {
