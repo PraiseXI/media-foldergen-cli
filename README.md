@@ -1,6 +1,21 @@
-# Creative Structure CLI
+# Creative Structure
 
-A powerful command-line interface (CLI) tool to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
+A powerful tool to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
+
+## 🌐 Web Application
+**New!** Use Creative Structure right in your browser - no installation required!
+
+**[Launch Web App →](webapp/index.html)**
+
+Perfect for users who prefer a visual interface or don't want to use the command line. Features include:
+- ✨ **Intuitive step-by-step interface** 
+- 👥 **Visual client management**
+- 📱 **Mobile-friendly design**
+- 💾 **Instant ZIP downloads**
+- 🎨 **Real-time preview**
+
+## 💻 Command Line Interface (CLI)
+For power users and automation, the CLI provides the full feature set with scriptable commands.
 
 ## The Problem
 
