@@ -1,0 +1,17 @@
+{
+  "folders": [
+    "Footage",
+    "Edited",
+    "Deliverables",
+    "Contracts & Briefs",
+    "Exports",
+    "Thumbnail & Graphics",
+    "Audio"
+  ],
+  "subfolders": {
+    "Footage": ["RAW"]
+  },
+  "optional_folders": [
+    "Footage/Proxies"
+  ]
+} 

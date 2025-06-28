@@ -1,0 +1,23 @@
+{
+  "folders": [
+    "Presets & Templates",
+    "Stock Footage & Images",
+    "Music & Sound Effects"
+  ],
+  "subfolders": {
+    "Presets & Templates": [
+      "Lightroom Presets",
+      "LUTs for Video",
+      "Photoshop Templates",
+      "Final Cut Pro-Premiere Templates"
+    ],
+    "Stock Footage & Images": [
+      "Videos",
+      "Photos"
+    ],
+    "Music & Sound Effects": [
+      "Licensed Music",
+      "Sound Effects"
+    ]
+  }
+} 

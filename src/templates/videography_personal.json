@@ -1,0 +1,14 @@
+{
+  "folders": [
+    "Footage",
+    "Edited",
+    "Exports",
+    "Audio"
+  ],
+  "subfolders": {
+    "Footage": ["RAW"]
+  },
+  "optional_folders": [
+    "Footage/Proxies"
+  ]
+} 

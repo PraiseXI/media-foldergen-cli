@@ -1,0 +1,6 @@
+click>=8.0.0
+colorama>=0.4.4
+questionary>=1.10.0
+rich>=13.0.0
+pathlib2>=2.3.0
+pydantic>=1.8.0 

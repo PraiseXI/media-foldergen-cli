@@ -1,0 +1,15 @@
+README.md
+setup.py
+src/sbp_folder_generator.egg-info/PKG-INFO
+src/sbp_folder_generator.egg-info/SOURCES.txt
+src/sbp_folder_generator.egg-info/dependency_links.txt
+src/sbp_folder_generator.egg-info/entry_points.txt
+src/sbp_folder_generator.egg-info/requires.txt
+src/sbp_folder_generator.egg-info/top_level.txt
+src/sbp_generator/__init__.py
+src/sbp_generator/cli.py
+src/sbp_generator/client_manager.py
+src/sbp_generator/config.py
+src/sbp_generator/generators.py
+src/sbp_generator/models.py
+tests/test_cli.py
