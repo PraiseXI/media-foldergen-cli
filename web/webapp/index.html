@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Structure - Web Application</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🎬</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="app-icon">🎬</span>
+                    Creative Structure
+                </h1>
+                <p class="app-subtitle">Professional folder structures made simple</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-outline" id="view-clients-btn">
+                    <span class="btn-icon">👥</span>
+                    My Clients
+                </button>
+                <button class="btn btn-outline" id="help-btn">
+                    <span class="btn-icon">❓</span>
+                    Help
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Application -->
+        <main class="app-main">
+            <!-- Welcome Section -->
+            <section class="welcome-section" id="welcome-section">
+                <div class="welcome-content">
+                    <h2>Welcome to Creative Structure</h2>
+                    <p>Create professional, organized folder structures for your photography and videography projects in seconds.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📁</div>
+                            <h3>Standardized Layouts</h3>
+                            <p>Industry-standard folder structures that scale with your business</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3>Client Management</h3>
+                            <p>Save and reuse client information across projects</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎥</div>
+                            <h3>Multi-Camera Support</h3>
+                            <p>Organize complex multi-camera video projects effortlessly</p>
+                        </div>
+                    </div>
+                    
+                    <div class="welcome-actions">
+                        <button class="btn btn-primary btn-large" id="start-project-btn">
+                            <span class="btn-icon">🚀</span>
+                            Start New Project
+                        </button>
+                        <button class="btn btn-secondary btn-large" id="view-demo-btn">
+                            <span class="btn-icon">▶️</span>
+                            View CLI Demo
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Creation Form -->
+            <section class="form-section" id="form-section" style="display: none;">
+                <div class="form-container">
+                    <div class="form-header">
+                        <button class="btn btn-text" id="back-to-welcome">
+                            <span class="btn-icon">←</span>
+                            Back
+                        </button>
+                        <h2>Create New Project</h2>
+                        <div class="form-progress">
+                            <span class="progress-step active" data-step="1">1</span>
+                            <span class="progress-line"></span>
+                            <span class="progress-step" data-step="2">2</span>
+                            <span class="progress-line"></span>
+                            <span class="progress-step" data-step="3">3</span>
+                        </div>
+                    </div>
+
+                    <form id="project-form" class="project-form">
+                        <!-- Step 1: Project Basics -->
+                        <div class="form-step active" data-step="1">
+                            <h3>Project Basics</h3>
+                            <p class="step-description">Let's start with the basics of your project</p>
+                            
+                            <div class="form-group">
+                                <label for="project-type">Project Type</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="project-type" value="photo" required>
+                                        <span class="radio-card">
+                                            <span class="radio-icon">📸</span>
+                                            <span class="radio-label">Photography</span>
+                                        </span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="project-type" value="video" required>
+                                        <span class="radio-card">
+                                            <span class="radio-icon">🎥</span>
+                                            <span class="radio-label">Videography</span>
+                                        </span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="project-type" value="both" required>
+                                        <span class="radio-card">
+                                            <span class="radio-icon">🎬</span>
+                                            <span class="radio-label">Both</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="work-type">Work Type</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="work-type" value="client" required>
+                                        <span class="radio-card">
+                                            <span class="radio-icon">💼</span>
+                                            <span class="radio-label">Client Work</span>
+                                        </span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="work-type" value="personal" required>
+                                        <span class="radio-card">
+                                            <span class="radio-icon">🎨</span>
+                                            <span class="radio-label">Personal Work</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-primary" id="step1-next">
+                                    Next Step
+                                    <span class="btn-icon">→</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Project Details -->
+                        <div class="form-step" data-step="2">
+                            <h3>Project Details</h3>
+                            <p class="step-description">Provide details about your project</p>
+                            
+                            <div class="form-group" id="client-group" style="display: none;">
+                                <label for="client-name">Client</label>
+                                <div class="input-with-action">
+                                    <input type="text" id="client-name" name="client-name" 
+                                           placeholder="Enter client name" list="clients-list">
+                                    <datalist id="clients-list"></datalist>
+                                    <button type="button" class="btn btn-outline btn-small" id="add-client-btn">
+                                        <span class="btn-icon">+</span>
+                                        Add New
+                                    </button>
+                                </div>
+                                <div class="saved-clients" id="saved-clients"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-name">Project Name</label>
+                                <input type="text" id="project-name" name="project-name" 
+                                       placeholder="Enter project name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-date">Project Date</label>
+                                <input type="date" id="project-date" name="project-date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="include-capture-one" name="include-capture-one">
+                                    <span class="checkbox-text">Include Capture One folder (Photography)</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="include-proxies" name="include-proxies">
+                                    <span class="checkbox-text">Include Proxies folder (Video)</span>
+                                </label>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline" id="step2-prev">
+                                    <span class="btn-icon">←</span>
+                                    Previous
+                                </button>
+                                <button type="button" class="btn btn-primary" id="step2-next">
+                                    Next Step
+                                    <span class="btn-icon">→</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Camera Setup (Video) -->
+                        <div class="form-step" data-step="3">
+                            <h3>Camera Setup</h3>
+                            <p class="step-description">Configure your camera organization (optional for video projects)</p>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="use-camera-folders" name="use-camera-folders">
+                                    <span class="checkbox-text">Use multi-camera organization</span>
+                                </label>
+                            </div>
+
+                            <div class="camera-setup" id="camera-setup" style="display: none;">
+                                <div class="camera-assignments" id="camera-assignments">
+                                    <!-- Camera assignments will be added dynamically -->
+                                </div>
+                                <button type="button" class="btn btn-outline btn-small" id="add-camera-btn">
+                                    <span class="btn-icon">+</span>
+                                    Add Camera
+                                </button>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline" id="step3-prev">
+                                    <span class="btn-icon">←</span>
+                                    Previous
+                                </button>
+                                <button type="button" class="btn btn-primary" id="create-project-btn">
+                                    <span class="btn-icon">🎬</span>
+                                    Create Project
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section" id="preview-section" style="display: none;">
+                <div class="preview-container">
+                    <div class="preview-header">
+                        <h2>Project Structure Preview</h2>
+                        <button class="btn btn-outline" id="edit-project-btn">
+                            <span class="btn-icon">✏️</span>
+                            Edit Project
+                        </button>
+                    </div>
+                    
+                    <div class="project-summary" id="project-summary">
+                        <!-- Project summary will be populated here -->
+                    </div>
+                    
+                    <div class="folder-preview" id="folder-preview">
+                        <!-- Folder structure will be shown here -->
+                    </div>
+                    
+                    <div class="preview-actions">
+                        <button class="btn btn-primary btn-large" id="download-structure-btn">
+                            <span class="btn-icon">📦</span>
+                            Download Structure
+                        </button>
+                        <button class="btn btn-outline btn-large" id="create-another-btn">
+                            <span class="btn-icon">🆕</span>
+                            Create Another Project
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Client Management Modal -->
+            <div class="modal" id="clients-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>My Clients</h3>
+                        <button class="btn btn-text" id="close-clients-modal">
+                            <span class="btn-icon">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="client-list" id="client-list">
+                            <!-- Client list will be populated here -->
+                        </div>
+                        <div class="add-client-form" id="add-client-form">
+                            <h4>Add New Client</h4>
+                            <div class="form-group">
+                                <label for="new-client-name">Client Name</label>
+                                <input type="text" id="new-client-name" placeholder="Enter client name">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-client-notes">Notes (optional)</label>
+                                <textarea id="new-client-notes" placeholder="Add any notes about this client"></textarea>
+                            </div>
+                            <button class="btn btn-primary" id="save-client-btn">
+                                <span class="btn-icon">💾</span>
+                                Save Client
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Modal -->
+            <div class="modal" id="help-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>How to Use Creative Structure</h3>
+                        <button class="btn btn-text" id="close-help-modal">
+                            <span class="btn-icon">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="help-content">
+                            <h4>Getting Started</h4>
+                            <ol>
+                                <li>Choose your project type (Photo, Video, or Both)</li>
+                                <li>Select whether it's client work or personal work</li>
+                                <li>Enter your project details and client information</li>
+                                <li>Configure camera setup for video projects (optional)</li>
+                                <li>Preview and download your folder structure</li>
+                            </ol>
+                            
+                            <h4>Features</h4>
+                            <ul>
+                                <li><strong>Client Management:</strong> Save client information for reuse</li>
+                                <li><strong>Multi-Camera Support:</strong> Organize complex video projects</li>
+                                <li><strong>Professional Layouts:</strong> Industry-standard folder structures</li>
+                                <li><strong>Instant Download:</strong> Get your structure as a ZIP file</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Creative Structure. Built for photographers and videographers.</p>
+                <div class="footer-links">
+                    <a href="../index.html" class="footer-link">CLI Demo</a>
+                    <a href="#" class="footer-link">GitHub</a>
+                    <a href="#" class="footer-link">Documentation</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Creating your project structure...</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="structure-generator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

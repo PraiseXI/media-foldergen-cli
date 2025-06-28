@@ -606,6 +606,17 @@ function addObjectToZip(zip, obj, basePath = '') {
     });
 }
 
+// Scroll to demo section
+function scrollToDemo() {
+    const terminal = document.querySelector('.terminal-container');
+    if (terminal) {
+        terminal.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     // Add some initial terminal content
