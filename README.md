@@ -2,6 +2,54 @@
 
 A command-line interface (CLI) application to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
 
+## The Problem
+
+As a photographer or videographer, you've probably experienced these frustrations:
+
+**🗂️ Inconsistent Organization**
+- Every project starts with the same tedious folder creation process
+- Different folder structures across projects make files hard to find
+- Manual folder creation is error-prone and time-consuming
+
+**👥 Client Management Chaos**
+- Retyping client names and creating duplicate folder structures
+- No easy way to see what clients you've worked with
+- Inconsistent naming conventions across client projects
+
+**🎥 Multi-Camera Complexity**
+- Managing footage from multiple cameras becomes a nightmare
+- No standardized way to organize main, BTS, drone, and interview footage
+- Hours wasted manually creating and naming camera-specific folders
+
+**📁 Repetitive Setup**
+- The same folder structure setup for every single project
+- No intelligence about your existing folder organization
+- Starting from scratch in new locations recreates entire directory trees
+
+## Why This Tool Exists
+
+**⚡ Speed Up Your Workflow**
+- Generate complete project structures in seconds, not minutes
+- Standardized layouts mean you always know where to find files
+- Smart detection prevents duplicate work and folder creation
+
+**🎯 Professional Consistency**
+- Industry-standard folder structures that scale with your business
+- Consistent naming conventions across all projects
+- Organized structure that clients and collaborators can easily navigate
+
+**🧠 Intelligent Automation**
+- Automatically discovers existing clients from your folder structure
+- Detects where you are in your project hierarchy and adapts accordingly
+- Learns from your existing organization instead of fighting it
+
+**📈 Scalable Organization**
+- Built for both solo creators and growing studios
+- Handles everything from simple personal projects to complex multi-camera commercial shoots
+- Grows with your business without breaking your existing organization
+
+Stop manually creating the same folders over and over. Start focusing on what you do best: creating amazing visual content.
+
 ## Features
 
 - 📁 **Standardized Folder Structures** - Generate consistent folder layouts for photo and video projects
