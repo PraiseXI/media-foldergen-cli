@@ -2,10 +2,19 @@
 
 A powerful tool to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
 
+## 📖 Documentation
+**[Complete Documentation →](https://creative-structure.vercel.app/docs.html)**
+
+Our comprehensive documentation includes:
+- 🚀 **Quick Start Guide** - Get up and running in minutes
+- 💻 **Technical Reference** - Complete CLI command reference
+- ❓ **FAQ & Troubleshooting** - Common issues and solutions
+- ⬇️ **Installation Guide** - Multiple installation methods
+
 ## 🌐 Web Application
 **New!** Use Creative Structure right in your browser - no installation required!
 
-**[Launch Web App →](webapp/index.html)**
+**[Launch Web App →](https://creative-structure.vercel.app/webapp/index.html)**
 
 Perfect for users who prefer a visual interface or don't want to use the command line. Features include:
 - ✨ **Intuitive step-by-step interface** 
