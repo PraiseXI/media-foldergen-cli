@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Creative Structure</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🎬</text></svg>">
+    <link rel="stylesheet" href="docs-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">🎬</span>
+                Creative Structure
+            </a>
+            <div class="nav-links">
+                <a href="webapp/index.html" class="nav-link">Web App</a>
+                <a href="index.html" class="nav-link">CLI Demo</a>
+                <a href="docs.html" class="nav-link active">Documentation</a>
+                <a href="https://github.com/PraiseXI/media-foldergen-cli" class="nav-link" target="_blank">
+                    <span class="link-icon">⭐</span> GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="docs-header">
+            <h1>📖 Documentation</h1>
+            <p>Everything you need to know about Creative Structure</p>
+        </header>
+
+        <div class="docs-navigation">
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="showSection('quick-start')">
+                    <span class="tab-icon">🚀</span>
+                    Quick Start
+                </button>
+                <button class="tab-btn" onclick="showSection('technical')">
+                    <span class="tab-icon">💻</span>
+                    Technical Docs
+                </button>
+                <button class="tab-btn" onclick="showSection('faq')">
+                    <span class="tab-icon">❓</span>
+                    FAQ & Issues
+                </button>
+                <button class="tab-btn" onclick="showSection('install')">
+                    <span class="tab-icon">⬇️</span>
+                    Installation
+                </button>
+            </div>
+        </div>
+
+        <main class="docs-content">
+            <!-- Quick Start Section -->
+            <section id="quick-start" class="docs-section active">
+                <div class="section-header">
+                    <h2>🚀 Quick Start Guide</h2>
+                    <p class="section-subtitle">Perfect for photographers and videographers who want to get started quickly</p>
+                </div>
+
+                <div class="quick-options">
+                    <div class="option-card primary">
+                        <div class="option-icon">🌐</div>
+                        <h3>Web Application (Recommended)</h3>
+                        <p>Use Creative Structure directly in your browser - no installation required!</p>
+                        <div class="option-features">
+                            <span class="feature">✨ Visual interface</span>
+                            <span class="feature">📱 Mobile friendly</span>
+                            <span class="feature">💾 Instant downloads</span>
+                        </div>
+                        <a href="webapp/index.html" class="btn-option">Launch Web App</a>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-icon">💻</div>
+                        <h3>Command Line Interface</h3>
+                        <p>For power users who prefer terminal commands and automation</p>
+                        <div class="option-features">
+                            <span class="feature">⚡ Lightning fast</span>
+                            <span class="feature">🔧 Scriptable</span>
+                            <span class="feature">🎯 Advanced features</span>
+                        </div>
+                        <a href="#install" class="btn-option secondary" onclick="showSection('install')">Install CLI</a>
+                    </div>
+                </div>
+
+                <div class="workflow-guide">
+                    <h3>📋 How It Works</h3>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Choose Your Tool</h4>
+                                <p>Use the web app for visual interface or install the CLI for power users</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Configure Your Project</h4>
+                                <p>Select project type (photo/video), work type (client/personal), and add details</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Generate Structure</h4>
+                                <p>Get a professional folder structure instantly - download as ZIP or create locally</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Start Creating</h4>
+                                <p>Focus on your creative work with organized, consistent project structure</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder-examples">
+                    <h3>📁 Folder Structure Examples</h3>
+                    <div class="example-tabs">
+                        <button class="example-tab active" onclick="showExample('photo')">Photography</button>
+                        <button class="example-tab" onclick="showExample('video')">Videography</button>
+                        <button class="example-tab" onclick="showExample('both')">Photo + Video</button>
+                    </div>
+                    
+                    <div class="example-content">
+                        <div id="photo-example" class="example active">
+                            <pre class="folder-tree">📦 2024-03-15 Wedding Shoot
+├── 📁 RAW Images
+│   └── 📁 Camera 1
+├── 📁 Edited Images
+│   ├── 📁 High Res
+│   └── 📁 Web Res
+├── 📁 Delivered Images
+├── 📁 Client Selects
+├── 📁 Behind the Scenes
+├── 📁 Client Communication
+├── 📁 Contracts & Invoices
+└── 📄 README.txt</pre>
+                        </div>
+                        
+                        <div id="video-example" class="example">
+                            <pre class="folder-tree">📦 2024-03-15 Commercial Video
+├── 📁 RAW Footage
+│   ├── 📁 Camera 1
+│   └── 📁 Camera 2
+├── 📁 Edited Footage
+├── 📁 Delivered Videos
+├── 📁 Project Files
+├── 📁 Audio Files
+├── 📁 Graphics & Assets
+├── 📁 Behind the Scenes
+├── 📁 Client Communication
+├── 📁 Contracts & Invoices
+└── 📄 README.txt</pre>
+                        </div>
+                        
+                        <div id="both-example" class="example">
+                            <pre class="folder-tree">📦 2024-03-15 Brand Campaign
+├── 📁 PHOTO
+│   ├── 📁 RAW Images
+│   ├── 📁 Edited Images
+│   └── 📁 Delivered Images
+├── 📁 VIDEO
+│   ├── 📁 RAW Footage
+│   ├── 📁 Edited Footage
+│   └── 📁 Delivered Videos
+├── 📁 Client Communication
+├── 📁 Contracts & Invoices
+└── 📄 README.txt</pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Documentation Section -->
+            <section id="technical" class="docs-section">
+                <div class="section-header">
+                    <h2>💻 Technical Documentation</h2>
+                    <p class="section-subtitle">Complete reference for developers and power users</p>
+                </div>
+
+                <div class="tech-content">
+                    <div class="tech-section">
+                        <h3>🔧 CLI Commands</h3>
+                        <div class="command-group">
+                            <h4>Interactive Mode (Recommended)</h4>
+                            <div class="code-block">
+                                <pre><code>creative-structure-cli interactive</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <p>Launches an interactive wizard that guides you through project creation.</p>
+                        </div>
+
+                        <div class="command-group">
+                            <h4>Direct Project Creation</h4>
+                            <div class="code-block">
+                                <pre><code># Photography project
+creative-structure-cli create --type photo --work-type client --client "ABC Corp" --project "Product Shoot"
+
+# Video project
+creative-structure-cli create --type video --work-type personal --project "Travel Documentary"
+
+# Combined project
+creative-structure-cli create --type both --work-type client --client "XYZ Inc" --project "Brand Campaign"</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+
+                        <div class="command-group">
+                            <h4>Client Management</h4>
+                            <div class="code-block">
+                                <pre><code># List all clients
+creative-structure-cli clients list
+
+# Add new client
+creative-structure-cli clients add "New Client Name"
+
+# Remove client
+creative-structure-cli clients remove "Client Name"</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+
+                        <div class="command-group">
+                            <h4>Advanced Features</h4>
+                            <div class="code-block">
+                                <pre><code># Multi-camera video setup
+creative-structure-cli create --type video --cameras "main:camera1,BTS:camera2,drone:camera3"
+
+# Disable smart path detection
+creative-structure-cli create --type photo --no-smart-path
+
+# Include optional folders
+creative-structure-cli create --type photo --include-capture-one
+creative-structure-cli create --type video --include-proxies</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-section">
+                        <h3>⚙️ Configuration</h3>
+                        <p>The CLI stores configuration and client data in:</p>
+                        <div class="code-block">
+                            <pre><code># Configuration directory
+~/.config/creative-structure/
+
+# Client database
+~/.config/creative-structure/clients.db
+
+# Settings file
+~/.config/creative-structure/config.json</code></pre>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="tech-section">
+                        <h3>🧠 Smart Path Detection</h3>
+                        <p>The CLI automatically detects your current location and adapts:</p>
+                        <div class="detection-examples">
+                            <div class="detection-example">
+                                <h4>Example 1: Inside Client Folder</h4>
+                                <div class="code-block">
+                                    <pre><code># You're in: /Projects/PHOTO/Client Work/ABC Corp/
+# CLI detects: Photo project, Client work, ABC Corp
+# Creates: 2024-03-15-New Project/ (directly here)</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="detection-example">
+                                <h4>Example 2: Root Directory</h4>
+                                <div class="code-block">
+                                    <pre><code># You're in: /Projects/
+# CLI detects: Nothing special
+# Creates: PHOTO/Client Work/ABC Corp/2024-03-15-New Project/</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-section">
+                        <h3>🎥 Multi-Camera Support</h3>
+                        <p>Organize video projects with multiple cameras:</p>
+                        <div class="code-block">
+                            <pre><code># Camera purposes: main, BTS, secondary, drone, interview, detail, backup
+--cameras "main:camera1,BTS:camera2,drone:camera3"
+
+# Results in folders like:
+# RAW Footage/main-camera1/
+# RAW Footage/BTS-camera2/
+# RAW Footage/drone-camera3/</code></pre>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="tech-section">
+                        <h3>🔗 API Reference</h3>
+                        <p>For developers who want to integrate Creative Structure:</p>
+                        <div class="api-note">
+                            <div class="note-icon">📋</div>
+                            <div class="note-content">
+                                <h4>Python Module Import</h4>
+                                <p>The CLI can be imported as a Python module for custom integrations. Check the <a href="https://github.com/PraiseXI/media-foldergen-cli" target="_blank">GitHub repository</a> for detailed API documentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="docs-section">
+                <div class="section-header">
+                    <h2>❓ FAQ & Common Issues</h2>
+                    <p class="section-subtitle">Answers to frequently asked questions and troubleshooting</p>
+                </div>
+
+                <div class="faq-content">
+                    <div class="faq-category">
+                        <h3>🚀 Getting Started</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Should I use the web app or CLI?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>Web App</strong> is perfect if you:</p>
+                                    <ul>
+                                        <li>Prefer visual interfaces</li>
+                                        <li>Want to try it without installation</li>
+                                        <li>Need it to work on any device</li>
+                                        <li>Create projects occasionally</li>
+                                    </ul>
+                                    <p><strong>CLI</strong> is better if you:</p>
+                                    <ul>
+                                        <li>Create many projects regularly</li>
+                                        <li>Want to automate with scripts</li>
+                                        <li>Need the fastest possible workflow</li>
+                                        <li>Are comfortable with terminal commands</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Do I need to install anything for the web app?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>No! The web app runs entirely in your browser. Just visit the <a href="webapp/index.html">web app</a> and start creating project structures immediately.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Will this work with my existing folder structure?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes! The CLI has smart path detection that recognizes your existing folders and won't create duplicates. It will also discover existing clients from your folder structure.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>💻 Installation Issues</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>"Command not found" error</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>This usually means the CLI wasn't installed properly or isn't in your PATH. Try:</p>
+                                    <div class="code-block">
+                                        <pre><code># Reinstall in development mode
+pip install -e .
+
+# Or check if it's installed
+pip list | grep creative-structure</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Permission denied errors</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>The CLI needs permission to create folders. Make sure you have write access to your target directory, or run with appropriate permissions.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Python/pip not found</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>You need Python 3.7+ installed. Visit <a href="https://python.org" target="_blank">python.org</a> to download Python, or use the web app instead which requires no installation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>🎯 Usage Questions</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Can I customize the folder structure?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Currently, the folder structures follow industry best practices and aren't customizable. This ensures consistency and compatibility. If you need specific customizations, please open an issue on <a href="https://github.com/PraiseXI/media-foldergen-cli" target="_blank">GitHub</a>.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>How does client discovery work?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>The CLI scans your existing "Client Work" folders to find client names automatically. It combines these with clients you've saved to the database, so you never have to retype client names.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>What's the difference between RAW and Edited folders?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>RAW</strong> is for your original, unprocessed files straight from camera. <strong>Edited</strong> is for processed files you're working on. This separation protects your originals and keeps your workflow organized.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Can I use this for other types of creative work?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>While designed for photography and videography, the folder structures work well for any project-based creative work. The principles of RAW/source files, edited versions, and deliverables apply broadly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>🔧 Troubleshooting</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Web app download not working</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Make sure your browser allows downloads and isn't blocking pop-ups. Some browsers may ask for permission to download ZIP files. Try refreshing the page and creating the project again.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Smart detection not working properly</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Smart detection looks for specific folder patterns like "PHOTO", "VIDEO", "Client Work", etc. Make sure your folders follow the standard structure, or use <code>--no-smart-path</code> to disable it.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFaq(this)">
+                                    <span>Need help with something else?</span>
+                                    <span class="faq-icon">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Open an issue on <a href="https://github.com/PraiseXI/media-foldergen-cli/issues" target="_blank">GitHub</a> with details about your problem. Include your operating system, Python version (for CLI), and what you were trying to do.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Installation Section -->
+            <section id="install" class="docs-section">
+                <div class="section-header">
+                    <h2>⬇️ Installation Guide</h2>
+                    <p class="section-subtitle">Get Creative Structure CLI up and running on your system</p>
+                </div>
+
+                <div class="install-content">
+                    <div class="install-options">
+                        <div class="install-option recommended">
+                            <div class="option-header">
+                                <h3>🌐 Web Application (No Installation)</h3>
+                                <span class="badge">Recommended</span>
+                            </div>
+                            <p>Start using Creative Structure immediately without any installation:</p>
+                            <div class="install-steps">
+                                <div class="install-step">
+                                    <span class="step-number">1</span>
+                                    <span>Visit the web application</span>
+                                </div>
+                                <div class="install-step">
+                                    <span class="step-number">2</span>
+                                    <span>Create your project structure</span>
+                                </div>
+                                <div class="install-step">
+                                    <span class="step-number">3</span>
+                                    <span>Download as ZIP file</span>
+                                </div>
+                            </div>
+                            <a href="webapp/index.html" class="btn-install primary">Launch Web App</a>
+                        </div>
+
+                        <div class="install-option">
+                            <div class="option-header">
+                                <h3>💻 CLI Installation</h3>
+                            </div>
+                            <p>Install the command-line interface for power users and automation:</p>
+                            
+                            <div class="install-method">
+                                <h4>📦 From GitHub (Current Method)</h4>
+                                <p>Clone and install from the source repository:</p>
+                                <div class="code-block">
+                                    <pre><code># Clone the repository
+git clone https://github.com/PraiseXI/media-foldergen-cli.git
+
+# Navigate to the directory
+cd media-foldergen-cli
+
+# Install in development mode
+pip install -e .</code></pre>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </div>
+
+                            <div class="install-method">
+                                <h4>⚡ Quick Install Script</h4>
+                                <p>One-line installation (requires git and Python):</p>
+                                <div class="code-block">
+                                    <pre><code>curl -sSL https://raw.githubusercontent.com/PraiseXI/media-foldergen-cli/main/install.sh | bash</code></pre>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <p class="install-note">🚧 Install script coming soon - use GitHub method for now</p>
+                            </div>
+
+                            <div class="install-method">
+                                <h4>🐍 Via pip (Coming Soon)</h4>
+                                <p>Direct installation from PyPI:</p>
+                                <div class="code-block">
+                                    <pre><code>pip install creative-structure-cli</code></pre>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <p class="install-note">🚧 PyPI package coming soon - use GitHub method for now</p>
+                            </div>
+
+                            <a href="https://github.com/PraiseXI/media-foldergen-cli" class="btn-install secondary" target="_blank">
+                                <span class="btn-icon">⭐</span>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="requirements">
+                        <h3>📋 System Requirements</h3>
+                        <div class="req-grid">
+                            <div class="req-item">
+                                <h4>🌐 Web App</h4>
+                                <ul>
+                                    <li>Modern web browser</li>
+                                    <li>JavaScript enabled</li>
+                                    <li>Internet connection</li>
+                                </ul>
+                            </div>
+                            <div class="req-item">
+                                <h4>💻 CLI</h4>
+                                <ul>
+                                    <li>Python 3.7 or higher</li>
+                                    <li>pip (Python package manager)</li>
+                                    <li>git (for GitHub installation)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verify-install">
+                        <h3>✅ Verify Installation</h3>
+                        <p>After installing the CLI, verify it works:</p>
+                        <div class="code-block">
+                            <pre><code># Check if CLI is installed
+creative-structure-cli --version
+
+# Run interactive mode
+creative-structure-cli interactive
+
+# Get help
+creative-structure-cli --help</code></pre>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="platform-notes">
+                        <h3>💡 Platform-Specific Notes</h3>
+                        <div class="platform-grid">
+                            <div class="platform-item">
+                                <h4>🍎 macOS</h4>
+                                <p>Install Python via Homebrew for best results:</p>
+                                <div class="code-block small">
+                                    <pre><code>brew install python git</code></pre>
+                                </div>
+                            </div>
+                            <div class="platform-item">
+                                <h4>🐧 Linux</h4>
+                                <p>Use your distribution's package manager:</p>
+                                <div class="code-block small">
+                                    <pre><code># Ubuntu/Debian
+sudo apt install python3 python3-pip git
+
+# CentOS/RHEL
+sudo yum install python3 python3-pip git</code></pre>
+                                </div>
+                            </div>
+                            <div class="platform-item">
+                                <h4>🪟 Windows</h4>
+                                <p>Install Python from python.org and enable "Add to PATH"</p>
+                                <p>Use Git Bash or PowerShell for commands</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="docs-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Creative Structure</h4>
+                    <p>Professional folder structures for photographers and videographers</p>
+                    <div class="footer-links">
+                        <a href="webapp/index.html">Web App</a>
+                        <a href="index.html">CLI Demo</a>
+                        <a href="docs.html">Documentation</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="https://github.com/PraiseXI/media-foldergen-cli" target="_blank">
+                            <span class="link-icon">⭐</span> GitHub Repository
+                        </a>
+                        <a href="https://github.com/PraiseXI/media-foldergen-cli/issues" target="_blank">
+                            <span class="link-icon">🐛</span> Report Issues
+                        </a>
+                        <a href="https://github.com/PraiseXI/media-foldergen-cli/releases" target="_blank">
+                            <span class="link-icon">📦</span> Releases
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#quick-start" onclick="showSection('quick-start')">Quick Start</a>
+                        <a href="#technical" onclick="showSection('technical')">Technical Docs</a>
+                        <a href="#faq" onclick="showSection('faq')">FAQ</a>
+                        <a href="#install" onclick="showSection('install')">Installation</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Creative Structure. Built for the creative community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="docs-script.js"></script>
+</body>
+</html> 
