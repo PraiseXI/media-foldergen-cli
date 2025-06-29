@@ -527,18 +527,65 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1rem 2rem;
+    }
+    
+    .header h1 {
+        font-size: 3rem;
+    }
+    
+    .story-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .problems-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .terminal-container {
+        margin: 2rem 0;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
     }
     
+    .header {
+        padding: 2rem 0;
+    }
+    
     .header h1 {
         font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .header p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .demo-badge {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.75rem;
+    }
+    
+    .story-section {
+        padding: 2rem 1rem;
     }
     
     .story-content h2 {
         font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .story-intro {
+        font-size: 1rem;
     }
     
     .problems-grid {
@@ -546,27 +593,258 @@ body {
         gap: 1.5rem;
     }
     
+    .problem-card {
+        padding: 1.5rem;
+    }
+    
+    .problem-card h3 {
+        font-size: 1.1rem;
+    }
+    
     .solution-point {
         flex-direction: column;
         text-align: center;
+        gap: 1rem;
     }
     
-    .story-section {
-        padding: 2rem 1rem;
+    .solution-emoji {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .btn-cta {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 2rem;
+    }
+    
+    .terminal-container {
+        margin: 2rem 0;
     }
     
     .terminal {
         padding: 1rem;
         font-size: 0.85rem;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .terminal-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .terminal-content {
+        padding: 1rem;
     }
     
     .links {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+    }
+    
+    .link {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        padding: 0.875rem 1.5rem;
     }
     
     .choices {
         justify-content: center;
+        gap: 0.75rem;
+    }
+    
+    .btn-secondary {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .steps-container {
+        gap: 1rem;
+    }
+    
+    .step {
+        padding: 1.5rem;
+    }
+    
+    .preview-container {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .folder-tree {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+    
+    .header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .header p {
+        font-size: 0.9rem;
+    }
+    
+    .demo-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .story-section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .story-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .story-intro {
+        font-size: 0.9rem;
+    }
+    
+    .problem-card {
+        padding: 1rem;
+    }
+    
+    .problem-icon {
+        font-size: 2rem;
+    }
+    
+    .problem-card h3 {
+        font-size: 1rem;
+    }
+    
+    .problem-card p {
+        font-size: 0.85rem;
+    }
+    
+    .solution-emoji {
+        font-size: 1.75rem;
+    }
+    
+    .solution-text {
+        font-size: 0.9rem;
+    }
+    
+    .btn-cta {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .terminal {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+        max-height: 300px;
+    }
+    
+    .terminal-header {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .terminal-title {
+        font-size: 0.8rem;
+    }
+    
+    .control {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .terminal-content {
+        padding: 0.75rem;
+    }
+    
+    .link {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+    
+    .btn-secondary {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .step {
+        padding: 1rem;
+    }
+    
+    .step h3 {
+        font-size: 1rem;
+    }
+    
+    .step p {
+        font-size: 0.85rem;
+    }
+    
+    .preview-container {
+        padding: 1rem;
+    }
+    
+    .folder-tree {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+    }
+    
+    .btn-download {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .header {
+        padding: 1.5rem 0;
+    }
+    
+    .story-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .terminal {
+        max-height: 250px;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    .btn-cta, .link, .btn-secondary {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .terminal-controls {
+        display: none; /* Hide decorative elements on touch devices */
+    }
+    
+    .terminal-header {
+        justify-content: center;
+    }
+    
+    .problem-card:hover {
+        transform: none; /* Disable hover transforms on touch devices */
+    }
+    
+    .btn-cta:hover, .link:hover {
+        transform: none;
     }
 }
 

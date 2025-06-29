@@ -5,12 +5,17 @@
 
 class CreativeStructureApp {
     constructor() {
-        this.generator = new StructureGenerator();
-        this.clients = this.loadClients();
-        this.currentProject = null;
-        this.currentStep = 1;
-        
-        this.init();
+        try {
+            this.generator = new StructureGenerator();
+            this.clients = this.loadClients();
+            this.currentProject = null;
+            this.currentStep = 1;
+            this.errorHandler = new ErrorHandler();
+            
+            this.init();
+        } catch (error) {
+            this.handleError('Failed to initialize application', error);
+        }
     }
 
     init() {
@@ -20,50 +25,82 @@ class CreativeStructureApp {
     }
 
     setupEventListeners() {
-        // Navigation
-        document.getElementById('start-project-btn').addEventListener('click', () => this.showForm());
-        document.getElementById('view-demo-btn').addEventListener('click', () => window.open('../index.html', '_blank'));
-        document.getElementById('back-to-welcome').addEventListener('click', () => this.showWelcome());
-        
-        // Form steps
-        document.getElementById('step1-next').addEventListener('click', () => this.nextStep());
-        document.getElementById('step2-prev').addEventListener('click', () => this.prevStep());
-        document.getElementById('step2-next').addEventListener('click', () => this.nextStep());
-        document.getElementById('step3-prev').addEventListener('click', () => this.prevStep());
-        
-        // Form submission
-        document.getElementById('create-project-btn').addEventListener('click', () => this.createProject());
-        
-        // Project actions
-        document.getElementById('edit-project-btn').addEventListener('click', () => this.editProject());
-        document.getElementById('download-structure-btn').addEventListener('click', () => this.downloadStructure());
-        document.getElementById('create-another-btn').addEventListener('click', () => this.createAnother());
-        
-        // Client management
-        document.getElementById('view-clients-btn').addEventListener('click', () => this.showClientsModal());
-        document.getElementById('add-client-btn').addEventListener('click', () => this.showAddClientForm());
-        document.getElementById('save-client-btn').addEventListener('click', () => this.saveClient());
-        document.getElementById('close-clients-modal').addEventListener('click', () => this.closeClientsModal());
-        
-        // Help
-        document.getElementById('help-btn').addEventListener('click', () => this.showHelpModal());
-        document.getElementById('close-help-modal').addEventListener('click', () => this.closeHelpModal());
-        
-        // Form changes
-        document.querySelector('input[name="work-type"]').addEventListener('change', (e) => this.handleWorkTypeChange(e));
-        document.getElementById('use-camera-folders').addEventListener('change', (e) => this.handleCameraFoldersChange(e));
-        document.getElementById('add-camera-btn').addEventListener('click', () => this.addCameraAssignment());
-        
-        // Client input
-        document.getElementById('client-name').addEventListener('input', (e) => this.handleClientInput(e));
-        
-        // Modal backdrop clicks
-        document.getElementById('clients-modal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) this.closeClientsModal();
-        });
-        document.getElementById('help-modal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) this.closeHelpModal();
-        });
+        try {
+            // Navigation
+            this.safeAddEventListener('start-project-btn', 'click', () => this.showForm());
+            this.safeAddEventListener('view-demo-btn', 'click', () => window.open('../index.html', '_blank'));
+            this.safeAddEventListener('back-to-welcome', 'click', () => this.showWelcome());
+            
+            // Form steps
+            this.safeAddEventListener('step1-next', 'click', () => this.nextStep());
+            this.safeAddEventListener('step2-prev', 'click', () => this.prevStep());
+            this.safeAddEventListener('step2-next', 'click', () => this.nextStep());
+            this.safeAddEventListener('step3-prev', 'click', () => this.prevStep());
+            
+            // Form submission
+            this.safeAddEventListener('create-project-btn', 'click', () => this.createProject());
+            
+            // Project actions
+            this.safeAddEventListener('edit-project-btn', 'click', () => this.editProject());
+            this.safeAddEventListener('download-structure-btn', 'click', () => this.downloadStructure());
+            this.safeAddEventListener('create-another-btn', 'click', () => this.createAnother());
+            
+            // Client management
+            this.safeAddEventListener('view-clients-btn', 'click', () => this.showClientsModal());
+            this.safeAddEventListener('add-client-btn', 'click', () => this.showAddClientForm());
+            this.safeAddEventListener('save-client-btn', 'click', () => this.saveClient());
+            this.safeAddEventListener('close-clients-modal', 'click', () => this.closeClientsModal());
+            
+            // Help
+            this.safeAddEventListener('help-btn', 'click', () => this.showHelpModal());
+            this.safeAddEventListener('close-help-modal', 'click', () => this.closeHelpModal());
+            
+            // Form changes
+            const workTypeInput = document.querySelector('input[name="work-type"]');
+            if (workTypeInput) {
+                workTypeInput.addEventListener('change', (e) => this.handleWorkTypeChange(e));
+            }
+            
+            this.safeAddEventListener('use-camera-folders', 'change', (e) => this.handleCameraFoldersChange(e));
+            this.safeAddEventListener('add-camera-btn', 'click', () => this.addCameraAssignment());
+            
+            // Client input
+            this.safeAddEventListener('client-name', 'input', (e) => this.handleClientInput(e));
+            
+            // Modal backdrop clicks
+            this.safeAddEventListener('clients-modal', 'click', (e) => {
+                if (e.target === e.currentTarget) this.closeClientsModal();
+            });
+            this.safeAddEventListener('help-modal', 'click', (e) => {
+                if (e.target === e.currentTarget) this.closeHelpModal();
+            });
+
+            // Global error handling
+            window.addEventListener('error', (e) => this.handleGlobalError(e));
+            window.addEventListener('unhandledrejection', (e) => this.handleUnhandledRejection(e));
+            
+        } catch (error) {
+            this.handleError('Failed to setup event listeners', error);
+        }
+    }
+
+    safeAddEventListener(elementId, event, handler) {
+        try {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.addEventListener(event, (e) => {
+                    try {
+                        handler(e);
+                    } catch (error) {
+                        this.handleError(`Error in ${elementId} ${event} handler`, error);
+                    }
+                });
+            } else {
+                console.warn(`Element with ID '${elementId}' not found`);
+            }
+        } catch (error) {
+            this.handleError(`Failed to add event listener to ${elementId}`, error);
+        }
     }
 
     // Navigation Methods
@@ -149,20 +186,67 @@ class CreativeStructureApp {
     }
 
     validateCurrentStep() {
-        const currentStepElement = document.querySelector(`.form-step[data-step="${this.currentStep}"]`);
-        const requiredFields = currentStepElement.querySelectorAll('input[required], select[required]');
-        
-        let isValid = true;
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                field.classList.add('error');
-                isValid = false;
-            } else {
-                field.classList.remove('error');
+        try {
+            const currentStepElement = document.querySelector(`.form-step[data-step="${this.currentStep}"]`);
+            if (!currentStepElement) {
+                throw new Error(`Step ${this.currentStep} not found`);
             }
-        });
-        
-        return isValid;
+
+            const requiredFields = currentStepElement.querySelectorAll('input[required], select[required]');
+            
+            let isValid = true;
+            const errors = [];
+
+            requiredFields.forEach(field => {
+                const fieldName = field.name || field.id || 'Unknown field';
+                
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    errors.push(`${fieldName} is required`);
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    
+                    // Additional validation based on field type
+                    if (field.type === 'email' && !this.isValidEmail(field.value)) {
+                        field.classList.add('error');
+                        errors.push(`${fieldName} must be a valid email`);
+                        isValid = false;
+                    }
+                    
+                    if (field.type === 'date' && !this.isValidDate(field.value)) {
+                        field.classList.add('error');
+                        errors.push(`${fieldName} must be a valid date`);
+                        isValid = false;
+                    }
+                }
+            });
+
+            if (!isValid) {
+                this.showValidationErrors(errors);
+            }
+            
+            return isValid;
+        } catch (error) {
+            this.handleError('Validation failed', error);
+            return false;
+        }
+    }
+
+    isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    isValidDate(date) {
+        const dateObj = new Date(date);
+        return dateObj instanceof Date && !isNaN(dateObj);
+    }
+
+    showValidationErrors(errors) {
+        if (errors.length > 0) {
+            this.errorHandler.showError('Please fix the following issues:', errors.join('\n'));
+        }
     }
 
     // Form Handlers
@@ -338,26 +422,91 @@ class CreativeStructureApp {
     }
 
     // Project Creation
-    createProject() {
-        const formData = new FormData(document.getElementById('project-form'));
-        const config = this.buildProjectConfig(formData);
-        
-        // Validate configuration
-        const validation = this.generator.validateConfig(config);
-        if (!validation.isValid) {
-            alert('Please fix the following errors:\n' + validation.errors.join('\n'));
-            return;
+    async createProject() {
+        try {
+            const formElement = document.getElementById('project-form');
+            if (!formElement) {
+                throw new Error('Project form not found');
+            }
+
+            const formData = new FormData(formElement);
+            const config = this.buildProjectConfig(formData);
+            
+            // Validate configuration
+            const validation = this.generator.validateConfig(config);
+            if (!validation.isValid) {
+                this.errorHandler.showError('Configuration Error', validation.errors.join('\n'));
+                return;
+            }
+            
+            // Show loading
+            this.showLoading('Creating your project structure...');
+            
+            try {
+                // Simulate processing time with actual work
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                this.currentProject = this.generator.generateStructure(config);
+                
+                if (!this.currentProject) {
+                    throw new Error('Failed to generate project structure');
+                }
+                
+                this.showProjectPreview();
+                this.hideLoading();
+                
+                // Save client if new
+                if (config.workType === 'client' && config.clientName) {
+                    this.saveClientIfNew(config.clientName);
+                }
+                
+            } catch (generationError) {
+                this.hideLoading();
+                throw new Error(`Project generation failed: ${generationError.message}`);
+            }
+            
+        } catch (error) {
+            this.hideLoading();
+            this.handleError('Failed to create project', error);
         }
+    }
+
+    showLoading(message = 'Loading...') {
+        const overlay = document.getElementById('loading-overlay');
+        const messageElement = overlay?.querySelector('.loading-message');
         
-        // Show loading
-        document.getElementById('loading-overlay').classList.add('active');
-        
-        // Simulate processing time
-        setTimeout(() => {
-            this.currentProject = this.generator.generateStructure(config);
-            this.showProjectPreview();
-            document.getElementById('loading-overlay').classList.remove('active');
-        }, 1500);
+        if (overlay) {
+            overlay.classList.add('active');
+            if (messageElement) {
+                messageElement.textContent = message;
+            }
+        }
+    }
+
+    hideLoading() {
+        const overlay = document.getElementById('loading-overlay');
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+    }
+
+    saveClientIfNew(clientName) {
+        try {
+            const existingClient = this.clients.find(c => 
+                c.name.toLowerCase() === clientName.toLowerCase()
+            );
+            
+            if (!existingClient) {
+                this.clients.push({
+                    name: clientName,
+                    dateAdded: new Date().toISOString()
+                });
+                this.saveClients();
+                this.loadSavedClients();
+            }
+        } catch (error) {
+            console.warn('Failed to save new client:', error);
+        }
     }
 
     buildProjectConfig(formData) {
@@ -448,35 +597,77 @@ class CreativeStructureApp {
 
     // Download Functionality
     async downloadStructure() {
-        if (!this.currentProject) return;
-        
-        const zip = new JSZip();
-        
-        // Add all folders
-        this.currentProject.folders.forEach(folder => {
-            zip.folder(folder);
-        });
-        
-        // Add all files
-        this.currentProject.files.forEach(file => {
-            zip.file(file.path, file.content);
-        });
-        
-        // Generate and download
         try {
-            const blob = await zip.generateAsync({ type: 'blob' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${this.currentProject.summary.projectName}-structure.zip`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            if (!this.currentProject) {
+                throw new Error('No project structure available to download');
+            }
+
+            if (!window.JSZip) {
+                throw new Error('JSZip library not loaded');
+            }
+            
+            this.showLoading('Preparing download...');
+            
+            const zip = new JSZip();
+            
+            // Add all folders
+            if (this.currentProject.folders && Array.isArray(this.currentProject.folders)) {
+                this.currentProject.folders.forEach(folder => {
+                    if (folder) {
+                        zip.folder(folder);
+                    }
+                });
+            }
+            
+            // Add all files
+            if (this.currentProject.files && Array.isArray(this.currentProject.files)) {
+                this.currentProject.files.forEach(file => {
+                    if (file && file.path && file.content !== undefined) {
+                        zip.file(file.path, file.content);
+                    }
+                });
+            }
+            
+            // Generate and download
+            try {
+                const blob = await zip.generateAsync({ 
+                    type: 'blob',
+                    compression: 'DEFLATE',
+                    compressionOptions: { level: 6 }
+                });
+                
+                if (!blob) {
+                    throw new Error('Failed to generate ZIP file');
+                }
+                
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${this.sanitizeFilename(this.currentProject.summary.projectName)}-structure.zip`;
+                a.style.display = 'none';
+                
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                // Clean up
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+                
+                this.hideLoading();
+                this.errorHandler.showSuccess('Download completed successfully!');
+                
+            } catch (zipError) {
+                throw new Error(`ZIP generation failed: ${zipError.message}`);
+            }
+            
         } catch (error) {
-            console.error('Error generating download:', error);
-            alert('Error generating download. Please try again.');
+            this.hideLoading();
+            this.handleError('Download failed', error);
         }
+    }
+
+    sanitizeFilename(filename) {
+        return filename.replace(/[^a-z0-9\-_\s]/gi, '').replace(/\s+/g, '-');
     }
 
     // Utility Methods
@@ -487,14 +678,162 @@ class CreativeStructureApp {
 
     loadClients() {
         try {
-            return JSON.parse(localStorage.getItem('creative-structure-clients') || '[]');
-        } catch {
+            const stored = localStorage.getItem('creative-structure-clients');
+            return stored ? JSON.parse(stored) : [];
+        } catch (error) {
+            console.warn('Failed to load clients from localStorage:', error);
             return [];
         }
     }
 
     saveClients() {
-        localStorage.setItem('creative-structure-clients', JSON.stringify(this.clients));
+        try {
+            localStorage.setItem('creative-structure-clients', JSON.stringify(this.clients));
+        } catch (error) {
+            console.warn('Failed to save clients to localStorage:', error);
+        }
+    }
+
+    // Error Handling
+    handleError(context, error) {
+        console.error(`${context}:`, error);
+        
+        if (this.errorHandler) {
+            this.errorHandler.showError(context, error.message || 'An unexpected error occurred');
+        } else {
+            // Fallback if error handler not initialized
+            alert(`${context}: ${error.message || 'An unexpected error occurred'}`);
+        }
+    }
+
+    handleGlobalError(event) {
+        this.handleError('Global Error', {
+            message: event.error?.message || event.message || 'Unknown error',
+            filename: event.filename,
+            lineno: event.lineno,
+            colno: event.colno
+        });
+    }
+
+    handleUnhandledRejection(event) {
+        this.handleError('Unhandled Promise Rejection', {
+            message: event.reason?.message || event.reason || 'Promise rejected'
+        });
+        event.preventDefault();
+    }
+}
+
+/**
+ * Error Handler Class
+ * Manages error display and user feedback
+ */
+class ErrorHandler {
+    constructor() {
+        this.createErrorModal();
+    }
+
+    createErrorModal() {
+        // Check if error modal already exists
+        if (document.getElementById('error-modal')) return;
+
+        const modal = document.createElement('div');
+        modal.id = 'error-modal';
+        modal.className = 'modal error-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header error-header">
+                    <h3 id="error-title">Error</h3>
+                    <button id="close-error-modal" class="btn-text">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-message"></div>
+                    <div class="error-actions">
+                        <button id="retry-error-btn" class="btn btn-primary" style="display: none;">Retry</button>
+                        <button id="dismiss-error-btn" class="btn btn-outline">OK</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Add event listeners
+        document.getElementById('close-error-modal').addEventListener('click', () => this.hideError());
+        document.getElementById('dismiss-error-btn').addEventListener('click', () => this.hideError());
+        
+        // Close on backdrop click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) this.hideError();
+        });
+    }
+
+    showError(title, message, retryCallback = null) {
+        const modal = document.getElementById('error-modal');
+        const titleElement = document.getElementById('error-title');
+        const messageElement = document.getElementById('error-message');
+        const retryBtn = document.getElementById('retry-error-btn');
+
+        if (titleElement) titleElement.textContent = title;
+        if (messageElement) messageElement.textContent = message;
+
+        if (retryCallback && retryBtn) {
+            retryBtn.style.display = 'inline-block';
+            retryBtn.onclick = () => {
+                this.hideError();
+                retryCallback();
+            };
+        } else if (retryBtn) {
+            retryBtn.style.display = 'none';
+        }
+
+        if (modal) {
+            modal.classList.add('active');
+        }
+    }
+
+    showSuccess(message) {
+        // Create temporary success notification
+        const notification = document.createElement('div');
+        notification.className = 'success-notification';
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span class="notification-icon">✅</span>
+                <span class="notification-message">${message}</span>
+            </div>
+        `;
+
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            animation: slideInRight 0.3s ease;
+        `;
+
+        document.body.appendChild(notification);
+
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    notification.parentNode.removeChild(notification);
+                }, 300);
+            }
+        }, 3000);
+    }
+
+    hideError() {
+        const modal = document.getElementById('error-modal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
     }
 }
 
