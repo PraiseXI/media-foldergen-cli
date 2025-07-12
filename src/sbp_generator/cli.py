@@ -389,7 +389,7 @@ def interactive():
             # Validate database clients against actual folders (remove phantom clients)
             existing_clients = []
             for client in database_clients:
-                if self._client_folder_exists(client, project_type, directory_analysis):
+                if _client_folder_exists(client, project_type, directory_analysis):
                     existing_clients.append(client)
             
             # Merge and deduplicate clients (discovered clients take priority for display order)
