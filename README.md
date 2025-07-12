@@ -249,6 +249,46 @@ Select a client:
 # Creates: PHOTO/Client Work/ABC Corp/2024-01-15-New Project/
 ```
 
+## Configuration
+
+The CLI creates a configuration file at `~/.sbp-generator/config.json` on first run. You can customize folder names and settings to match your existing structure.
+
+### View Current Configuration
+```bash
+structure-cli config
+```
+
+### Common Configuration Changes
+
+**Change Folder Names** (e.g., if you use "VIDEO" instead of "Videography"):
+```bash
+# Edit ~/.sbp-generator/config.json
+{
+  "base_directories": {
+    "photography": "PHOTO",        // Your photo folder name
+    "videography": "VIDEO",        // Your video folder name  
+    "assets": "Assets & Resources"
+  }
+}
+```
+
+**Customize Subfolders**:
+```bash
+{
+  "client_work_subfolder": "Client Work",     // or "Clients"
+  "personal_work_subfolder": "Personal Work"  // or "Personal"
+}
+```
+
+**Reset to Defaults**:
+```bash
+structure-cli reset-config
+```
+
+### Configuration File Location
+- **File**: `~/.sbp-generator/config.json`
+- **Note**: This file is automatically created and should be in your `.gitignore`
+
 ## Multi-Camera Support
 
 For video projects, organize your footage by camera and purpose with intelligent folder naming:
