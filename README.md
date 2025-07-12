@@ -86,6 +86,14 @@ Stop manually creating the same folders over and over. Start focusing on what yo
 - 📹 **Multi-Camera Support** - Organize footage by camera and purpose (main-camera, BTS-secondary, etc.)
 - ⚙️ **Configurable** - Customize folder structures and settings
 
+## Recent Updates
+
+### Bug Fixes (July 2025)
+- ✅ **Fixed Interactive Mode Errors**: Resolved critical bugs preventing camera setup in interactive mode
+  - Fixed "name 'self' is not defined" error in client validation
+  - Fixed "'NoneType' object has no attribute 'get'" error in camera setup menu
+- 🎬 **Improved Camera Setup**: Enhanced error handling and user experience in multi-camera configuration
+
 ## Installation
 
 ### From Source

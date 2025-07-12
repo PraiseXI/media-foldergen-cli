@@ -553,8 +553,27 @@ def interactive():
                 console.print("\n📹 Camera Setup:", style="bold blue")
                 console.print("Set up your cameras and their purposes (main, BTS, secondary, etc.)")
                 
-                # Get default cameras from config
-                default_cameras = [Camera(**cam_data) for cam_data in config_manager.config.default_cameras]
+                try:
+                    # Get default cameras from config
+                    default_cameras_data = config_manager.config.default_cameras
+                    if default_cameras_data is None:
+                        print_error("Configuration error: default_cameras is not set. Please check your configuration.")
+                        return
+                    
+                    # Create Camera objects with error handling
+                    default_cameras = []
+                    for cam_data in default_cameras_data:
+                        if cam_data is None:
+                            print_warning("Skipping None camera data in configuration")
+                            continue
+                        try:
+                            default_cameras.append(Camera(**cam_data))
+                        except Exception as e:
+                            print_warning(f"Error creating camera from data {cam_data}: {e}")
+                            continue
+                except Exception as e:
+                    print_error(f"Error during camera setup initialization: {e}")
+                    return
                 
                 while True:
                     # Show current assignments
@@ -563,13 +582,17 @@ def interactive():
                         for i, assignment in enumerate(camera_assignments, 1):
                             console.print(f"   {i}. {assignment.get_folder_name()}")
                     
+                    # Build choices list, filtering out None values
+                    choices = [
+                        questionary.Choice("➕ Add Camera Assignment", "add"),
+                        questionary.Choice("✅ Done with Camera Setup", "done"),
+                    ]
+                    if camera_assignments:
+                        choices.append(questionary.Choice("🗑️ Remove Assignment", "remove"))
+                    
                     action = questionary.select(
                         "What would you like to do?",
-                        choices=[
-                            questionary.Choice("➕ Add Camera Assignment", "add"),
-                            questionary.Choice("✅ Done with Camera Setup", "done"),
-                            questionary.Choice("🗑️ Remove Assignment", "remove") if camera_assignments else None
-                        ]
+                        choices=choices
                     ).ask()
                     
                     if action == "done" or action is None:
