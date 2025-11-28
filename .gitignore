@@ -1,2 +1,9 @@
 PROJECT_PLAN.md
 .cursorrules
+
+# User configuration and data
+.sbp-generator/
+*.pyc
+__pycache__/
+*.egg-info/
+.DS_Store

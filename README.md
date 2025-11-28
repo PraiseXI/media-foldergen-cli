@@ -1,6 +1,6 @@
 # Creative Structure
 
-A powerful tool to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
+A powerful tool by [Professionally Curious](https://www.professionallycurious.com) to automatically generate standardized folder structures for photo and video projects, supporting both client work and personal projects.
 
 ## 📖 Documentation
 **[Complete Documentation →](https://creative-structure.vercel.app/docs.html)**
@@ -74,6 +74,12 @@ As a photographer or videographer, you've probably experienced these frustration
 
 Stop manually creating the same folders over and over. Start focusing on what you do best: creating amazing visual content.
 
+## About Professionally Curious
+
+This tool is developed by [Professionally Curious](https://www.professionallycurious.com), a company dedicated to creating innovative solutions for creative professionals. We understand the unique challenges faced by photographers and videographers, and we build tools that streamline workflows and enhance productivity.
+
+Visit us at [www.professionallycurious.com](https://www.professionallycurious.com) to learn more about our other products and services.
+
 ## Features
 
 - 📁 **Standardized Folder Structures** - Generate consistent folder layouts for photo and video projects
@@ -88,6 +94,16 @@ Stop manually creating the same folders over and over. Start focusing on what yo
 
 ## Recent Updates
 
+### UI/UX Redesign (November 2025)
+- 🎨 **Complete UI Overhaul**: Redesigned the entire web application with a modern, professional interface
+  - New dark theme with sophisticated color palette using deep grays and accent colors
+  - Enhanced typography with Inter font family for better readability
+  - Improved visual hierarchy with better spacing and layout
+  - Added subtle animations and micro-interactions for better user experience
+  - Completely responsive design optimized for all screen sizes
+  - Professional glassmorphism effects with backdrop blur
+  - Custom button styles with hover animations and visual feedback
+
 ### Bug Fixes (July 2025)
 - ✅ **Fixed Interactive Mode Errors**: Resolved critical bugs preventing camera setup in interactive mode
   - Fixed "name 'self' is not defined" error in client validation
@@ -96,10 +112,12 @@ Stop manually creating the same folders over and over. Start focusing on what yo
 
 ## Installation
 
+> **📋 Source Code**: The CLI source code is available on [GitHub](https://github.com/PraiseXI/media-foldergen-cli) for installation and development.
+
 ### From Source
 ```bash
-git clone <repository-url>
-cd creative-structure-cli
+git clone https://github.com/PraiseXI/media-foldergen-cli.git
+cd media-foldergen-cli
 pip install -e .
 ```
 

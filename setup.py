@@ -9,7 +9,9 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 setup(
     name="sbp-folder-generator",
     version="0.1.0",
-    author="SBP",
+    author="Professionally Curious",
+    author_email="contact@professionallycurious.com",
+    url="https://www.professionallycurious.com",
     description="A CLI tool for generating standardized folder structures for photo and video projects",
     long_description=long_description,
     long_description_content_type="text/markdown",

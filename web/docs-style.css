@@ -6,12 +6,33 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #333;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+    background: #0a0b0d;
+    color: #e8eaed;
     line-height: 1.6;
     min-height: 100vh;
 }
+
+/* Ensure emojis are properly displayed */
+.emoji, h1, h2, h3, h4, h5, h6 {
+    font-variant-emoji: emoji;
+}
+
+/* Force emoji visibility in gradient text */
+.emoji {
+    -webkit-text-fill-color: currentColor !important;
+    background: none !important;
+    color: #e8eaed !important;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Specific emoji styling for better visibility */
+h2, h3 {
+    font-synthesis: none;
+}
+
+/* Clean approach - emojis are handled by .emoji class */
 
 /* Navigation */
 .navbar {
@@ -155,7 +176,7 @@ body {
 
 /* Documentation Content */
 .docs-content {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(17, 24, 39, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 16px;
     margin-bottom: 3rem;
@@ -181,7 +202,7 @@ body {
 
 .section-header h2 {
     font-size: 2.5rem;
-    color: #333;
+    color: #f8f9fa;
     margin-bottom: 1rem;
     font-weight: 700;
 }
@@ -202,8 +223,8 @@ body {
 }
 
 .option-card {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
+    background: rgba(31, 41, 55, 0.6);
+    border: 2px solid rgba(55, 65, 81, 0.4);
     border-radius: 16px;
     padding: 2rem;
     text-align: center;
@@ -211,8 +232,8 @@ body {
 }
 
 .option-card.primary {
-    border-color: #4f46e5;
-    background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+    border-color: #0891b2;
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.05) 0%, rgba(8, 145, 178, 0.1) 100%);
 }
 
 .option-card:hover {
@@ -226,7 +247,7 @@ body {
 }
 
 .option-card h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.4rem;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -247,8 +268,8 @@ body {
 }
 
 .feature {
-    background: rgba(79, 70, 229, 0.1);
-    color: #4f46e5;
+    background: rgba(8, 145, 178, 0.1);
+    color: #0891b2;
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -260,7 +281,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
-    background: #4f46e5;
+    background: #0891b2;
     color: white;
     text-decoration: none;
     border-radius: 10px;
@@ -277,12 +298,12 @@ body {
 
 .btn-option.secondary {
     background: transparent;
-    color: #4f46e5;
-    border: 2px solid #4f46e5;
+    color: #0891b2;
+    border: 2px solid #0891b2;
 }
 
 .btn-option.secondary:hover {
-    background: #4f46e5;
+    background: #0891b2;
     color: white;
 }
 
@@ -292,7 +313,7 @@ body {
 }
 
 .workflow-guide h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.5rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -310,13 +331,13 @@ body {
     align-items: flex-start;
     gap: 1rem;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: rgba(31, 41, 55, 0.6);
     border-radius: 12px;
-    border-left: 4px solid #4f46e5;
+    border-left: 4px solid #0891b2;
 }
 
 .step-number {
-    background: #4f46e5;
+    background: #0891b2;
     color: white;
     width: 32px;
     height: 32px;
@@ -330,7 +351,7 @@ body {
 }
 
 .step-content h4 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -344,13 +365,13 @@ body {
 
 /* Folder Examples */
 .folder-examples {
-    background: #f8f9fa;
+    background: rgba(31, 41, 55, 0.6);
     border-radius: 16px;
     padding: 2rem;
 }
 
 .folder-examples h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -366,8 +387,8 @@ body {
 
 .example-tab {
     padding: 0.75rem 1.5rem;
-    background: white;
-    border: 2px solid #e9ecef;
+    background: rgba(17, 24, 39, 0.8);
+    border: 2px solid rgba(55, 65, 81, 0.4);
     border-radius: 8px;
     color: #666;
     font-weight: 500;
@@ -378,13 +399,13 @@ body {
 }
 
 .example-tab:hover {
-    border-color: #4f46e5;
-    color: #4f46e5;
+    border-color: #0891b2;
+    color: #0891b2;
 }
 
 .example-tab.active {
-    background: #4f46e5;
-    border-color: #4f46e5;
+    background: #0891b2;
+    border-color: #0891b2;
     color: white;
 }
 
@@ -434,7 +455,7 @@ body {
 }
 
 .tech-section h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -523,8 +544,8 @@ body {
 .api-note {
     display: flex;
     gap: 1rem;
-    background: #f0f4ff;
-    border: 1px solid #e0e7ff;
+    background: rgba(8, 145, 178, 0.1);
+    border: 1px solid rgba(8, 145, 178, 0.2);
     border-radius: 12px;
     padding: 1.5rem;
     margin: 1.5rem 0;
@@ -536,7 +557,7 @@ body {
 }
 
 .note-content h4 {
-    color: #4f46e5;
+    color: #0891b2;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -548,7 +569,7 @@ body {
 }
 
 .note-content a {
-    color: #4f46e5;
+    color: #0891b2;
     text-decoration: none;
 }
 
@@ -566,7 +587,7 @@ body {
 }
 
 .faq-category h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -579,15 +600,15 @@ body {
 }
 
 .faq-item {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
+    background: rgba(31, 41, 55, 0.6);
+    border: 1px solid rgba(55, 65, 81, 0.4);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.2s ease;
 }
 
 .faq-item:hover {
-    border-color: #4f46e5;
+    border-color: #0891b2;
 }
 
 .faq-question {
@@ -597,7 +618,7 @@ body {
     padding: 1.5rem;
     cursor: pointer;
     font-weight: 600;
-    color: #333;
+    color: #f8f9fa;
     transition: all 0.2s ease;
 }
 
@@ -607,7 +628,7 @@ body {
 
 .faq-icon {
     font-size: 1.2rem;
-    color: #4f46e5;
+    color: #0891b2;
     transition: transform 0.2s ease;
 }
 
@@ -648,7 +669,7 @@ body {
 }
 
 .faq-answer a {
-    color: #4f46e5;
+    color: #0891b2;
     text-decoration: none;
 }
 
@@ -669,8 +690,8 @@ body {
 }
 
 .install-option {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
+    background: rgba(31, 41, 55, 0.6);
+    border: 2px solid rgba(55, 65, 81, 0.4);
     border-radius: 16px;
     padding: 2rem;
     transition: all 0.3s ease;
@@ -694,7 +715,7 @@ body {
 }
 
 .option-header h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.4rem;
     font-weight: 600;
     margin: 0;
@@ -723,7 +744,7 @@ body {
 }
 
 .install-step .step-number {
-    background: #4f46e5;
+    background: #0891b2;
     color: white;
     width: 24px;
     height: 24px;
@@ -747,7 +768,7 @@ body {
 }
 
 .install-method h4 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.2rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
@@ -792,12 +813,12 @@ body {
 
 .btn-install.secondary {
     background: transparent;
-    color: #4f46e5;
-    border: 2px solid #4f46e5;
+    color: #0891b2;
+    border: 2px solid #0891b2;
 }
 
 .btn-install.secondary:hover {
-    background: #4f46e5;
+    background: #0891b2;
     color: white;
     text-decoration: none;
 }
@@ -811,7 +832,7 @@ body {
 }
 
 .requirements h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -825,14 +846,14 @@ body {
 }
 
 .req-item {
-    background: #f8f9fa;
+    background: rgba(31, 41, 55, 0.6);
     border-radius: 12px;
     padding: 1.5rem;
-    border: 1px solid #e9ecef;
+    border: 1px solid rgba(55, 65, 81, 0.4);
 }
 
 .req-item h4 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.2rem;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -853,7 +874,7 @@ body {
 }
 
 .verify-install h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -866,7 +887,7 @@ body {
 }
 
 .platform-notes h3 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -880,14 +901,14 @@ body {
 }
 
 .platform-item {
-    background: #f8f9fa;
+    background: rgba(31, 41, 55, 0.6);
     border-radius: 12px;
     padding: 1.5rem;
-    border: 1px solid #e9ecef;
+    border: 1px solid rgba(55, 65, 81, 0.4);
 }
 
 .platform-item h4 {
-    color: #333;
+    color: #f8f9fa;
     font-size: 1.1rem;
     margin-bottom: 1rem;
     font-weight: 600;

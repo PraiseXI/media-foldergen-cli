@@ -6,6 +6,6 @@ for photo and video projects.
 """
 
 __version__ = "0.1.0"
-__author__ = "SBP"
-__email__ = ""
+__author__ = "Professionally Curious"
+__email__ = "contact@professionallycurious.com"
 __description__ = "CLI tool for generating standardized folder structures for photo and video projects" 
